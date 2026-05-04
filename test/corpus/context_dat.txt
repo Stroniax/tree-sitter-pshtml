@@ -6,7 +6,6 @@ Context DAT
 ---
 
 (document
-  (dat
-    (paren_dat
-      (dat_name
-        (dat_name_part)))))
+  (paren_dat
+    (dat_name
+      (dat_name_part))))

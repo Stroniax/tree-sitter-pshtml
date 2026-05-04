@@ -12,16 +12,14 @@ Database Field Access ~([TABLE.EXT]FIELD)
         (attribute_name)
         (quoted_attribute_value
           (attribute_value
-            (dat
-              (database_field_access
-                (database_table_name)
-                (database_field_name)))))))
+            (database_field_access
+              (database_table_name)
+              (database_field_name))))))
     (text)
-    (dat
-      (database_field_access
-        (database_table_name)
-        (database_extension_name)
-        (database_field_name)))
+    (database_field_access
+      (database_table_name)
+      (database_extension_name)
+      (database_field_name))
     (text)
     (end_tag
       (tag_name))))

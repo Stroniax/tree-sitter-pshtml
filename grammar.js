@@ -14,7 +14,7 @@ module.exports = grammar(html, {
 
   inline: ($) => [$._ps_condition_label],
 
-  supertypes: ($) => [$.inline_dat],
+  supertypes: ($) => [$.inline_dat, $.dat],
 
   extras: ($) => [$.comment, $.comment_dat, /\s+/],
 

@@ -24,20 +24,18 @@ TLIST_SQL Embedded in HTML
         (attribute_name)
         (quoted_attribute_value
           (attribute_value))))
-    (dat
-      (tlist_sql
-        (tlist_query)
-        (tlist_template
-          (element
-            (start_tag
-              (tag_name))
-            (dat
-              (paren_dat
-                (dat_name
-                  (dat_name_part))
-                (dat_option
-                  (dat_option_name))))
-            (end_tag
-              (tag_name))))))
+    (tlist_sql
+      (tlist_query)
+      (tlist_template
+        (element
+          (start_tag
+            (tag_name))
+          (paren_dat
+            (dat_name
+              (dat_name_part))
+            (dat_option
+              (dat_option_name)))
+          (end_tag
+            (tag_name)))))
     (end_tag
       (tag_name))))

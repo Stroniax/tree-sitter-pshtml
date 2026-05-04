@@ -17,7 +17,7 @@
 #define MAX_ALIAS_SEQUENCE_LENGTH 10
 #define MAX_RESERVED_WORD_SET_SIZE 0
 #define PRODUCTION_ID_COUNT 12
-#define SUPERTYPE_COUNT 1
+#define SUPERTYPE_COUNT 2
 
 enum ts_symbol_identifiers {
   anon_sym_LT_BANG = 1,
@@ -609,8 +609,9 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = true,
   },
   [sym_dat] = {
-    .visible = true,
+    .visible = false,
     .named = true,
+    .supertype = true,
   },
   [sym_inline_dat] = {
     .visible = false,
@@ -1616,15 +1617,21 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
 };
 
 static const TSSymbol ts_supertype_symbols[SUPERTYPE_COUNT] = {
+  sym_dat,
   sym_inline_dat,
 };
 
 static const TSMapSlice ts_supertype_map_slices[] = {
-  [sym_inline_dat] = {.index = 0, .length = 3},
+  [sym_dat] = {.index = 0, .length = 3},
+  [sym_inline_dat] = {.index = 3, .length = 3},
 };
 
 static const TSSymbol ts_supertype_map_entries[] = {
   [0] =
+    sym_inline_dat,
+    sym_ps_if,
+    sym_tlist_sql,
+  [3] =
     sym_database_field_access,
     sym_paren_dat,
     sym_square_dat,

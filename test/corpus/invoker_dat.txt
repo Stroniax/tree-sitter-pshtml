@@ -7,10 +7,9 @@ This is ~[x:userid]'s way.
 
 (document
   (text)
-  (dat
-    (square_dat
-      (dat_name
-        (dat_name_part))
-      (dat_target
-        (dat_name_part))))
+  (square_dat
+    (dat_name
+      (dat_name_part))
+    (dat_target
+      (dat_name_part)))
   (text))
