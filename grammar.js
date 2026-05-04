@@ -54,8 +54,12 @@ module.exports = grammar(html, {
         choice($.tlist_variable, alias(/[^\[~]+/, $.tlist_template_text)),
       ),
     tlist_variable: ($) =>
-      seq("~(", /[^;)]+/, repeat($.tlist_variable_option), ")"),
-    tlist_variable_option: (_) => choice(";l;format=time", /;[^;)]+/),
+      seq(
+        "~(",
+        $.dat_name,
+        repeat(alias($.paren_dat_option, $.dat_option)),
+        ")",
+      ),
 
     ps_if: ($) =>
       seq(

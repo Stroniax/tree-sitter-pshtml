@@ -30,7 +30,10 @@ TLIST_SQL Embedded in HTML
         (tlist_template
           (tlist_template_text)
           (tlist_variable
-            (tlist_variable_option))
+            (dat_name
+              (dat_name_part))
+            (dat_option
+              (dat_option_name)))
         (tlist_template_text))))
     (end_tag
       (tag_name))))

@@ -16,11 +16,25 @@ TLIST_SQL Standard
       (tlist_query)
       (tlist_template
         (tlist_template_text)
-        (tlist_variable)
+        (tlist_variable
+          (dat_name
+            (dat_name_part)))
         (tlist_template_text)
         (tlist_variable
-          (tlist_variable_option)
-          (tlist_variable_option)
-          (tlist_variable_option)
-          (tlist_variable_option))
+          (dat_name
+            (dat_name_part))
+          (dat_option
+            (dat_option_name))
+          (dat_option
+            (dat_option_name)
+            (dat_option_operator)
+            (dat_option_value))
+          (dat_option
+            (dat_option_name)
+            (dat_option_operator)
+            (dat_option_value))
+          (dat_option
+            (dat_option_name)
+            (dat_option_operator)
+            (dat_option_value)))
         (tlist_template_text)))))

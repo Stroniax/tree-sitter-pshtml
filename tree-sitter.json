@@ -3,11 +3,11 @@
   "grammars": [
     {
       "name": "pshtml",
-      "camelcase": "PsHtml",
-      "title": "PS-HTML",
+      "camelcase": "PSHTML",
+      "title": "PowerSchool HTML",
       "scope": "source.pshtml",
-      "file-types": ["html", "txt"],
-      "injection-regex": "^html$",
+      "file-types": ["html"],
+      "injection-regex": "html",
       "class-name": "TreeSitterPshtml",
       "content-regex": "~[\\(\\[][\\[\\w]",
       "highlights": "queries/highlights.scm",
@@ -30,7 +30,7 @@
     }
   },
   "bindings": {
-    "c": true,
+    "c": false,
     "go": false,
     "java": false,
     "node": true,

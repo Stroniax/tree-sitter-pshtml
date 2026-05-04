@@ -705,19 +705,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "tlist_variable_option",
+          "type": "dat_name",
+          "named": true
+        },
+        {
+          "type": "dat_option",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "tlist_variable_option",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "\"",
@@ -749,10 +748,6 @@
   },
   {
     "type": ";",
-    "named": false
-  },
-  {
-    "type": ";l;format=time",
     "named": false
   },
   {

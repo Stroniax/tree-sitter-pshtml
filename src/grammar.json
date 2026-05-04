@@ -710,32 +710,24 @@
           "value": "~("
         },
         {
-          "type": "PATTERN",
-          "value": "[^;)]+"
+          "type": "SYMBOL",
+          "name": "dat_name"
         },
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "tlist_variable_option"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "paren_dat_option"
+            },
+            "named": true,
+            "value": "dat_option"
           }
         },
         {
           "type": "STRING",
           "value": ")"
-        }
-      ]
-    },
-    "tlist_variable_option": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ";l;format=time"
-        },
-        {
-          "type": "PATTERN",
-          "value": ";[^;)]+"
         }
       ]
     },
