@@ -25,12 +25,12 @@
 (database_extension_name) @type
 (database_field_name) @property
 
-(tlist_sql) @keyword.control
+"tlist_sql" @keyword.control
 (tlist_template_text) @string
 
-(ps_if_tag) @keyword.control
-(ps_if_else_tag) @keyword.control
-(ps_if_end_tag) @keyword.control
+"~[if" @keyword.control
+"[else" @keyword.control
+"[/if" @keyword.control
 
 (ps_condition_path) @variable
 (ps_condition_operator) @operator
