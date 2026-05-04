@@ -354,19 +354,7 @@
           "named": true
         },
         {
-          "type": "doctype",
-          "named": true
-        },
-        {
           "type": "element",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
           "named": true
         },
         {
@@ -451,19 +439,7 @@
           "named": true
         },
         {
-          "type": "doctype",
-          "named": true
-        },
-        {
           "type": "element",
-          "named": true
-        },
-        {
-          "type": "entity",
-          "named": true
-        },
-        {
-          "type": "erroneous_end_tag",
           "named": true
         },
         {
@@ -779,11 +755,11 @@
     "named": false
   },
   {
-    "type": "[/if",
+    "type": "[/",
     "named": false
   },
   {
-    "type": "[/tlist_sql]",
+    "type": "[/if",
     "named": false
   },
   {
@@ -864,6 +840,10 @@
     "named": true
   },
   {
+    "type": "tlist_sql",
+    "named": false
+  },
+  {
     "type": "tlist_template_text",
     "named": true
   },
@@ -889,10 +869,6 @@
   },
   {
     "type": "~[if",
-    "named": false
-  },
-  {
-    "type": "~[tlist_sql;",
     "named": false
   }
 ]

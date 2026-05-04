@@ -39,14 +39,17 @@ module.exports = grammar(html, {
 
     tlist_sql: ($) =>
       seq(
-        "~[tlist_sql;",
+        "~[",
+        "tlist_sql",
+        ";",
         $.tlist_query,
         repeat(alias($.square_dat_option, $.dat_option)),
         "]",
         $.tlist_template,
-        "[/tlist_sql]",
+        "[/",
+        "tlist_sql",
+        "]",
       ),
-
     tlist_query: (_) => /[^;\]]+/,
     // For now the template will not "parse" its content except the variables...
     tlist_template: ($) =>
@@ -64,12 +67,17 @@ module.exports = grammar(html, {
     ps_if: ($) =>
       seq(
         $.ps_if_tag,
-        alias(repeat($._node), $.ps_if_content),
+        alias(repeat($._if_content), $.ps_if_content),
         optional(
-          seq($.ps_if_else_tag, alias(repeat($._node), $.ps_else_content)),
+          seq(
+            $.ps_if_else_tag,
+            alias(repeat($._if_content), $.ps_else_content),
+          ),
         ),
         $.ps_if_end_tag,
       ),
+    _if_content: ($) =>
+      choice($.dat, $.text, $.element, $.script_element, $.style_element),
     ps_if_tag: ($) =>
       seq("~[if", optional($._ps_condition_label), ".", $.ps_if_condition, "]"),
     ps_if_else_tag: ($) => seq("[else", optional($._ps_condition_label), "]"),
