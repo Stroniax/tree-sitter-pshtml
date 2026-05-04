@@ -26,7 +26,6 @@
 (database_field_name) @property
 
 "tlist_sql" @keyword.control
-(tlist_template_text) @string
 
 "~[if" @keyword.control
 "[else" @keyword.control
@@ -35,7 +34,7 @@
 (ps_condition_path) @variable
 (ps_condition_operator) @operator
 (ps_condition_operand) @string
-(ps_condition_label) @variable
+(ps_condition_label) @string
 
 ; TODO: Why does ChatGPT recommend highlights for HTML?
 (tag_name) @tag

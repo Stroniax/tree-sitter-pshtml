@@ -681,7 +681,7 @@
           "named": true
         },
         {
-          "type": "tlist_template_text",
+          "type": "text",
           "named": true
         }
       ]
@@ -835,10 +835,6 @@
   {
     "type": "tlist_sql",
     "named": false
-  },
-  {
-    "type": "tlist_template_text",
-    "named": true
   },
   {
     "type": "~",

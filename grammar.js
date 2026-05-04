@@ -59,7 +59,8 @@ module.exports = grammar(html, {
           $.square_dat,
           $.paren_dat,
           $.element,
-          prec(-1, alias(/[^\[~]+/, $.tlist_template_text)),
+          prec(-1, alias(/[^\[<>&\s~]([^\[<>&~]*[^\[<>&\s~])?/, $.text)),
+          prec(-2, alias(/[~<]/, $.text)),
         ),
       ),
 

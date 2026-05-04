@@ -725,10 +725,23 @@
               "type": "ALIAS",
               "content": {
                 "type": "PATTERN",
-                "value": "[^\\[~]+"
+                "value": "[^\\[<>&\\s~]([^\\[<>&~]*[^\\[<>&\\s~])?"
               },
               "named": true,
-              "value": "tlist_template_text"
+              "value": "text"
+            }
+          },
+          {
+            "type": "PREC",
+            "value": -2,
+            "content": {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[~<]"
+              },
+              "named": true,
+              "value": "text"
             }
           }
         ]
