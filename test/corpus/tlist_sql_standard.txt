@@ -1,0 +1,26 @@
+===
+TLIST_SQL Standard
+===
+~[tlist_sql;select 1 from dual]
+<p>
+    Greetings ~(col0), I am ~(col_1;l;if.test=1;then=happy;else=not happy, Bob.
+    Not. Happy).
+</p>
+[/tlist_sql]
+
+---
+
+(document
+  (dat
+    (tlist_sql
+      (tlist_query)
+      (tlist_template
+        (tlist_template_text)
+        (tlist_variable)
+        (tlist_template_text)
+        (tlist_variable
+          (tlist_variable_option)
+          (tlist_variable_option)
+          (tlist_variable_option)
+          (tlist_variable_option))
+        (tlist_template_text)))))

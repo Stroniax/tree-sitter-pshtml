@@ -1,0 +1,39 @@
+===
+if ~(dat) then (mismatching labels)
+===
+~[if#exp.~([STUDENTS.U_STUDENTS_EXTENSION]IS_EXPELLED)=1]
+<span style="color: red">This kid is banned.</span>
+[else]
+I suppose you can come in.
+[/if#expelled]
+---
+
+(document
+  (dat
+    (ps_if
+      (ps_if_tag
+        (ps_condition_label)
+        (ps_if_condition
+          (ps_condition_path
+            (database_field_access
+              (database_table_name)
+              (database_extention_name)
+              (database_field_name)))
+          (ps_condition_operator)
+          (ps_condition_operand)))
+      (ps_if_content
+        (element
+          (start_tag
+            (tag_name)
+            (attribute
+              (attribute_name)
+              (quoted_attribute_value
+                (attribute_value))))
+          (text)
+          (end_tag
+            (tag_name))))
+      (ps_if_else_tag)
+      (ps_else_content
+        (text))
+      (ps_if_end_tag
+        (ps_condition_label)))))

@@ -1,0 +1,36 @@
+===
+TLIST_SQL Embedded in HTML
+===
+<ul class="flex-col">
+    ~[tlist_sql;
+    select lastfirst
+    from students
+    where enroll_status = 0
+    order by student_number
+    ]
+    <li>
+        ~(student_name;html)
+    </li>
+    [/tlist_sql]
+</ul>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (dat
+      (tlist_sql
+        (tlist_query)
+        (tlist_template
+          (tlist_template_text)
+          (tlist_variable
+            (tlist_variable_option))
+        (tlist_template_text))))
+    (end_tag
+      (tag_name))))

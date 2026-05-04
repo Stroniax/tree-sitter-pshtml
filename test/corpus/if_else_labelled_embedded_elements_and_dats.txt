@@ -1,0 +1,67 @@
+===
+if/else, labelled, embedded elements & DATs
+===
+<div class="prose">
+    <p>
+    ~[if#security.pagemod=/admin/students/generaldemographics.html]
+    <a href="/admin/students/generaldemographics.html?frn=~(studentfrn)">~([STUDENTS]LASTFIRST)</a>
+    [else#security]
+    ~([STUDENTS]LASTFIRST)
+    [/if#security]
+    is failing some classes.
+    </p>
+</div>
+
+---
+
+(document
+  (element
+    (start_tag
+      (tag_name)
+      (attribute
+        (attribute_name)
+        (quoted_attribute_value
+          (attribute_value))))
+    (element
+      (start_tag
+        (tag_name))
+      (dat
+        (ps_if
+          (ps_if_tag
+            (ps_condition_label)
+            (ps_if_condition
+              (ps_condition_path)
+              (ps_condition_operator)
+              (ps_condition_operand)))
+          (ps_if_content
+            (element
+              (start_tag
+                (tag_name)
+                (attribute
+                  (attribute_name)
+                  (quoted_attribute_value
+                    (attribute_value
+                      (dat
+                        (paren_dat
+                          (dat_name
+                            (dat_name_part))))))))
+              (dat
+                (database_field_access
+                  (database_table_name)
+                  (database_field_name)))
+              (end_tag
+                (tag_name))))
+          (ps_if_else_tag
+            (ps_condition_label))
+          (ps_else_content
+            (dat
+              (database_field_access
+                (database_table_name)
+                (database_field_name))))
+          (ps_if_end_tag
+            (ps_condition_label))))
+      (text)
+      (end_tag
+        (tag_name)))
+    (end_tag
+      (tag_name))))

@@ -1,0 +1,21 @@
+{
+  "name": "tree-sitter-pshtml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test",
+    "build": "tree-sitter generate",
+    "scratch": "npm run build && tree-sitter parse scratch.html",
+    "highlight": "npm run build && tree-sitter highlight scratch.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.26.8"
+  },
+  "dependencies": {
+    "tree-sitter-html": "^0.23.2"
+  }
+}

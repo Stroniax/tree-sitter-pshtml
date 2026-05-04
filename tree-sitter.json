@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "pshtml",
+      "camelcase": "PsHtml",
+      "title": "PS-HTML",
+      "scope": "source.pshtml",
+      "file-types": ["html", "txt"],
+      "injection-regex": "^pshtml$",
+      "class-name": "TreeSitterPshtml",
+      "content-regex": "~[\\(\\[][\\[\\w]",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "PowerSchool HTML",
+    "authors": [
+      {
+        "name": "Caleb Frederickson",
+        "url": "https://github.com/Stroniax"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Stroniax/zed-powerschool"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "java": false,
+    "node": true,
+    "python": false,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}

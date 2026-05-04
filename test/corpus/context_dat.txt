@@ -1,0 +1,12 @@
+===
+Context DAT
+===
+~(curyearid)
+
+---
+
+(document
+  (dat
+    (paren_dat
+      (dat_name
+        (dat_name_part)))))

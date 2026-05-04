@@ -1,0 +1,23 @@
+===
+if block (unlabelled with no operator)
+===
+~[if.is.a.school]
+<p>Hello</p>
+[/if]
+
+---
+
+(document
+  (dat
+    (ps_if
+      (ps_if_tag
+        (ps_if_condition
+          (ps_condition_path)))
+      (ps_if_content
+        (element
+          (start_tag
+            (tag_name))
+          (text)
+          (end_tag
+            (tag_name))))
+      (ps_if_end_tag))))

@@ -1,0 +1,17 @@
+===
+Text with tilde and square bracket
+===
+<p>This is ~ some content ] and [ it's OK.</p>
+
+---
+(document
+  (element
+    (start_tag
+      (tag_name))
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (end_tag
+      (tag_name))))
