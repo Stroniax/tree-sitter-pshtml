@@ -7,10 +7,12 @@
       "title": "PS-HTML",
       "scope": "source.pshtml",
       "file-types": ["html", "txt"],
-      "injection-regex": "^pshtml$",
+      "injection-regex": "^html$",
       "class-name": "TreeSitterPshtml",
       "content-regex": "~[\\(\\[][\\[\\w]",
-      "highlights": "queries/highlights.scm"
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm",
+      "first-line-regex": "^~\\[Comment"
     }
   ],
   "metadata": {
