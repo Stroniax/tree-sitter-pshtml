@@ -1,0 +1,41 @@
+===
+TLIST_SQL Template uses DATs
+===
+~[tlist_sql;
+    select 1 from dual
+]
+<p data-rn="~(rn)">Happy ~[if.~[date]=~(date.information;type=today)]birthday[else]belated birthday[/if] on ~[dob].</p>
+[/tlist_sql]
+
+---
+
+(document
+ (dat
+    (tlist_sql
+      (tlist_query)
+      (tlist_template
+        (tlist_template_text)
+        (paren_dat
+          (dat_name
+          (dat_name_part)))
+        (tlist_template_text)
+        (ps_if
+          (ps_if_tag
+            (ps_if_condition
+              (ps_condition_path
+              (square_dat
+                (dat_name
+                (dat_name_part))))
+              (ps_condition_operator)
+              (ps_condition_operand)))
+        (ps_if_content
+          (text))
+        (ps_if_else_tag)
+        (ps_else_content
+          (text))
+        (ps_if_end_tag))
+    (tlist_template_text)
+    (square_dat
+      (dat_name
+        (dat_name_part)))
+    (tlist_template_text)))))

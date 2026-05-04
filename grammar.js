@@ -54,14 +54,13 @@ module.exports = grammar(html, {
     // For now the template will not "parse" its content except the variables...
     tlist_template: ($) =>
       repeat1(
-        choice($.tlist_variable, alias(/[^\[~]+/, $.tlist_template_text)),
-      ),
-    tlist_variable: ($) =>
-      seq(
-        "~(",
-        $.dat_name,
-        repeat(alias($.paren_dat_option, $.dat_option)),
-        ")",
+        choice(
+          $.ps_if,
+          $.square_dat,
+          $.paren_dat,
+          $.element,
+          prec(-1, alias(/[^\[~]+/, $.tlist_template_text)),
+        ),
       ),
 
     ps_if: ($) =>

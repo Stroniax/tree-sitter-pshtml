@@ -29,7 +29,7 @@ TLIST_SQL Embedded in HTML
         (tlist_query)
         (tlist_template
           (tlist_template_text)
-          (tlist_variable
+          (paren_dat
             (dat_name
               (dat_name_part))
             (dat_option

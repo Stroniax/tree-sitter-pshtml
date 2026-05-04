@@ -665,30 +665,23 @@
       "required": true,
       "types": [
         {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "paren_dat",
+          "named": true
+        },
+        {
+          "type": "ps_if",
+          "named": true
+        },
+        {
+          "type": "square_dat",
+          "named": true
+        },
+        {
           "type": "tlist_template_text",
-          "named": true
-        },
-        {
-          "type": "tlist_variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "tlist_variable",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "dat_name",
-          "named": true
-        },
-        {
-          "type": "dat_option",
           "named": true
         }
       ]

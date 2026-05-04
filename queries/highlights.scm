@@ -13,8 +13,10 @@
 
 (comment_dat) @comment
 
-
-(dat_name) @function
+(paren_dat
+  (dat_name)) @variable
+(square_dat
+  (dat_name)) @function
 (dat_option_name) @attribute
 (dat_option_operator) @operator
 (dat_option_value) @variable.parameter
@@ -24,8 +26,6 @@
 (database_field_name) @property
 
 (tlist_sql) @keyword.control
-(tlist_variable
-  (dat_name)) @variable
 (tlist_template_text) @string
 
 (ps_if_tag) @keyword.control
