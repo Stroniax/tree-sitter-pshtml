@@ -353,6 +353,10 @@
           "named": true
         },
         {
+          "type": "entity",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -438,6 +442,10 @@
           "named": true
         },
         {
+          "type": "entity",
+          "named": true
+        },
+        {
           "type": "script_element",
           "named": true
         },
@@ -507,7 +515,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "attribute_value",
@@ -661,6 +669,10 @@
       "types": [
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "entity",
           "named": true
         },
         {

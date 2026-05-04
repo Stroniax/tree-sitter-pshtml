@@ -59,6 +59,7 @@ module.exports = grammar(html, {
           $.square_dat,
           $.paren_dat,
           $.element,
+          $.entity,
           prec(-1, alias(/[^\[<>&\s~]([^\[<>&~]*[^\[<>&\s~])?/, $.text)),
           prec(-2, alias(/[~<]/, $.text)),
         ),
@@ -77,7 +78,14 @@ module.exports = grammar(html, {
         $.ps_if_end_tag,
       ),
     _if_content: ($) =>
-      choice($.dat, $.text, $.element, $.script_element, $.style_element),
+      choice(
+        $.dat,
+        $.text,
+        $.element,
+        $.script_element,
+        $.style_element,
+        $.entity,
+      ),
     ps_if_tag: ($) =>
       seq("~[if", optional($._ps_condition_label), ".", $.ps_if_condition, "]"),
     ps_if_else_tag: ($) => seq("[else", optional($._ps_condition_label), "]"),
@@ -87,7 +95,10 @@ module.exports = grammar(html, {
       seq(
         $.ps_condition_path,
         optional(
-          seq($.ps_condition_operator, alias(/[^\]]+/, $.ps_condition_operand)),
+          seq(
+            $.ps_condition_operator,
+            optional(alias(/[^\]]+/, $.ps_condition_operand)),
+          ),
         ),
       ),
     _ps_condition_label: ($) =>
@@ -152,21 +163,17 @@ module.exports = grammar(html, {
       choice(
         seq(
           '"',
-          optional(
-            alias(
-              repeat(choice($.dat, /[^"~]/, prec(-1, "~"))),
-              $.attribute_value,
-            ),
+          alias(
+            repeat1(choice($.dat, /[^"~]+/, prec(-1, "~"))),
+            $.attribute_value,
           ),
           '"',
         ),
         seq(
           "'",
-          optional(
-            alias(
-              repeat(choice($.dat, /[^'~]/, prec(-1, "~"))),
-              $.attribute_value,
-            ),
+          alias(
+            repeat1(choice($.dat, /[^'~]+/, prec(-1, "~"))),
+            $.attribute_value,
           ),
           "'",
         ),

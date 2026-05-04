@@ -1,0 +1,16 @@
+===
+if with ampersand in template
+===
+~[if.is.a.school]&recordSaved=1[/if]
+
+---
+
+(document
+  (ps_if
+    (ps_if_tag
+      (ps_if_condition
+        (ps_condition_path)))
+    (ps_if_content
+      (entity)
+      (text))
+    (ps_if_end_tag)))
