@@ -78,6 +78,41 @@
     }
   },
   {
+    "type": "block_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dat",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "entity",
+          "named": true
+        },
+        {
+          "type": "script_element",
+          "named": true
+        },
+        {
+          "type": "style_element",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comment_dat",
     "named": true,
     "extra": true,
@@ -352,31 +387,11 @@
     "named": true,
     "fields": {
       "alternative": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "dat",
-            "named": true
-          },
-          {
-            "type": "element",
-            "named": true
-          },
-          {
-            "type": "entity",
-            "named": true
-          },
-          {
-            "type": "script_element",
-            "named": true
-          },
-          {
-            "type": "style_element",
-            "named": true
-          },
-          {
-            "type": "text",
+            "type": "block_content",
             "named": true
           }
         ]
@@ -392,31 +407,11 @@
         ]
       },
       "consequent": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "dat",
-            "named": true
-          },
-          {
-            "type": "element",
-            "named": true
-          },
-          {
-            "type": "entity",
-            "named": true
-          },
-          {
-            "type": "script_element",
-            "named": true
-          },
-          {
-            "type": "style_element",
-            "named": true
-          },
-          {
-            "type": "text",
+            "type": "block_content",
             "named": true
           }
         ]

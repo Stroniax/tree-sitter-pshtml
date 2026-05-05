@@ -12,10 +12,11 @@ if block (unlabelled with no operator)
     (if_start_tag
       (if_condition
         (condition_lhs)))
-    (element
-      (start_tag
-        (tag_name))
-      (text)
-      (end_tag
-        (tag_name)))
+    (block_content
+      (element
+        (start_tag
+          (tag_name))
+        (text)
+        (end_tag
+          (tag_name))))
     (if_end_tag)))

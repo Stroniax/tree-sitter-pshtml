@@ -20,17 +20,19 @@ I suppose you can come in.
             (database_field_name)))
         (condition_operator)
         (condition_rhs)))
-    (element
-      (start_tag
-        (tag_name)
-        (attribute
-          (attribute_name)
-          (quoted_attribute_value
-            (attribute_value))))
-      (text)
-      (end_tag
-        (tag_name)))
+    (block_content
+      (element
+        (start_tag
+          (tag_name)
+          (attribute
+            (attribute_name)
+            (quoted_attribute_value
+              (attribute_value))))
+        (text)
+        (end_tag
+          (tag_name))))
     (else_tag)
-    (text)
+    (block_content
+      (text))
     (if_end_tag
       (label))))

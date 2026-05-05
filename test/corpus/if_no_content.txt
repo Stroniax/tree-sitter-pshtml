@@ -10,5 +10,6 @@ if (no content) else
       (if_condition
         (condition_lhs)))
     (else_tag)
-    (text)
+    (block_content
+      (text))
     (if_end_tag)))

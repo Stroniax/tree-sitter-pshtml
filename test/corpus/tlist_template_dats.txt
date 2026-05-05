@@ -41,9 +41,11 @@ TLIST_SQL Template uses DATs
                     (dat_option_name)
                     (dat_option_operator)
                     (dat_option_value))))))
-          (text)
+          (block_content
+            (text))
           (else_tag)
-          (text)
+          (block_content
+            (text))
           (if_end_tag))
         (text)
         (square_dat

@@ -35,4 +35,3 @@
 (condition_lhs) @string
 (condition_operator) @operator
 (condition_rhs) @string
-(if_block (label) @string)

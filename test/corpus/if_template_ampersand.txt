@@ -10,6 +10,7 @@ if with ampersand in template
     (if_start_tag
       (if_condition
         (condition_lhs)))
-    (entity)
-    (text)
+    (block_content
+      (entity)
+      (text))
     (if_end_tag)))

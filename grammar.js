@@ -51,7 +51,6 @@ module.exports = grammar(html, {
         "]",
       ),
     tlist_query: (_) => /[^;\]]+/,
-    // For now the template will not "parse" its content except the variables...
     tlist_template: ($) =>
       repeat1(
         choice(
@@ -68,11 +67,11 @@ module.exports = grammar(html, {
     if_block: ($) =>
       seq(
         field("open", $.if_start_tag),
-        field("consequent", repeat($._if_content)),
+        optional(field("consequent", $.block_content)),
         optional(
           seq(
             field("else_tag", $.else_tag),
-            field("alternative", repeat($._if_content)),
+            optional(field("alternative", $.block_content)),
           ),
         ),
         field("close", $.if_end_tag),
@@ -102,6 +101,7 @@ module.exports = grammar(html, {
         $.style_element,
         $.entity,
       ),
+    block_content: ($) => repeat1($._if_content),
     _if_label: ($) => seq("#", alias($.dat_name_part, $.label)),
 
     // TODO: does not handle "in" and "not in " operators. Should add a choice for these.
