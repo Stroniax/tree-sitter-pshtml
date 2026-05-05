@@ -123,6 +123,7 @@ module.exports = grammar(html, {
         $.dat_name,
         optional(seq(":", alias($.dat_name, $.dat_target))),
         repeat(alias($.square_dat_option, $.dat_option)),
+        optional(";"),
         "]",
       ),
     paren_dat: ($) =>
@@ -130,6 +131,7 @@ module.exports = grammar(html, {
         "~(",
         $.dat_name,
         repeat(alias($.paren_dat_option, $.dat_option)),
+        optional(";"),
         ")",
       ),
     dat_name: ($) => seq($.dat_name_part, repeat(seq(".", $.dat_name_part))),
@@ -140,13 +142,12 @@ module.exports = grammar(html, {
         optional(
           seq(
             alias(choice("=", ":"), $.dat_option_operator),
-            alias(
-              choice($.inline_dat, /[^\];~]+/, prec(-1, "~")),
-              $.dat_option_value,
-            ),
+            optional(alias($.square_dat_option_value, $.dat_option_value)),
           ),
         ),
       ),
+    square_dat_option_value: ($) =>
+      repeat1(choice($.inline_dat, /[^\];~]+/, prec(-1, "~"))),
     paren_dat_option: ($) =>
       seq(
         ";",
@@ -154,13 +155,12 @@ module.exports = grammar(html, {
         optional(
           seq(
             alias("=", $.dat_option_operator),
-            alias(
-              choice($.inline_dat, /[^);~]+/, prec(-1, "~")),
-              $.dat_option_value,
-            ),
+            optional(alias($.paren_dat_option_value, $.dat_option_value)),
           ),
         ),
       ),
+    paren_dat_option_value: ($) =>
+      repeat1(choice($.inline_dat, /[^);~]+/, prec(-1, "~"))),
 
     // HTML overrides
     // The easiest way to parse is to just not permit tilde in a "text" syntax node, though it is technically valid when not followed by open paren or bracket.

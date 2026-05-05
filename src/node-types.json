@@ -192,6 +192,21 @@
     }
   },
   {
+    "type": "dat_option_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "inline_dat",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dat_target",
     "named": true,
     "fields": {},
@@ -786,10 +801,6 @@
   },
   {
     "type": "dat_option_operator",
-    "named": true
-  },
-  {
-    "type": "dat_option_value",
     "named": true
   },
   {
