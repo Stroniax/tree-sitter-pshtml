@@ -132,7 +132,10 @@ module.exports = grammar(html, {
         optional(
           seq(
             alias(choice("=", ":"), $.dat_option_operator),
-            alias(choice($.inline_dat, /[^\];]+/), $.dat_option_value),
+            alias(
+              choice($.inline_dat, /[^\];~]+/, prec(-1, "~")),
+              $.dat_option_value,
+            ),
           ),
         ),
       ),
@@ -143,7 +146,10 @@ module.exports = grammar(html, {
         optional(
           seq(
             alias("=", $.dat_option_operator),
-            alias(choice($.inline_dat, /[^);]+/), $.dat_option_value),
+            alias(
+              choice($.inline_dat, /[^);~]+/, prec(-1, "~")),
+              $.dat_option_value,
+            ),
           ),
         ),
       ),
