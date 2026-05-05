@@ -5,11 +5,10 @@ if (no content) else
 
 ---
 (document
-  (ps_if
-    (ps_if_tag
-      (ps_if_condition
-        (ps_condition_path)))
-    (ps_if_else_tag)
-    (ps_else_content
-      (text))
-    (ps_if_end_tag)))
+  (if_block
+    (if_start_tag
+      (if_condition
+        (condition_lhs)))
+    (else_tag)
+    (text)
+    (if_end_tag)))

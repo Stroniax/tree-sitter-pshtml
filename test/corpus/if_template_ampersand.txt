@@ -6,11 +6,10 @@ if with ampersand in template
 ---
 
 (document
-  (ps_if
-    (ps_if_tag
-      (ps_if_condition
-        (ps_condition_path)))
-    (ps_if_content
-      (entity)
-      (text))
-    (ps_if_end_tag)))
+  (if_block
+    (if_start_tag
+      (if_condition
+        (condition_lhs)))
+    (entity)
+    (text)
+    (if_end_tag)))

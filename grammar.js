@@ -9,18 +9,18 @@
 
 const html = require("tree-sitter-html/grammar");
 
+// oxlint-disable no-useless-escape
+// tree-sitter requires square bracket open within a NOT range to be escaped again
+
 module.exports = grammar(html, {
   name: "pshtml",
-
-  inline: ($) => [$._ps_condition_label],
 
   supertypes: ($) => [$.inline_dat, $.dat],
 
   extras: ($) => [$.comment, $.comment_dat, /\s+/],
 
-  // oxlint-disable no-useless-escape tree-sitter requires square bracket open within a NOT range to be escaped again
   rules: {
-    dat: ($) => choice($.tlist_sql, $.ps_if, $.inline_dat),
+    dat: ($) => choice($.tlist_sql, $.if_block, $.inline_dat),
     inline_dat: ($) =>
       choice(prec(2, $.database_field_access), $.paren_dat, $.square_dat),
 
@@ -55,7 +55,7 @@ module.exports = grammar(html, {
     tlist_template: ($) =>
       repeat1(
         choice(
-          $.ps_if,
+          $.if_block,
           $.square_dat,
           $.paren_dat,
           $.element,
@@ -65,47 +65,55 @@ module.exports = grammar(html, {
         ),
       ),
 
-    ps_if: ($) =>
+    if_block: ($) =>
       seq(
-        $.ps_if_tag,
-        alias(repeat($._if_content), $.ps_if_content),
+        field("open", $.if_start_tag),
+        field("consequent", repeat($._if_content)),
         optional(
           seq(
-            $.ps_if_else_tag,
-            alias(repeat($._if_content), $.ps_else_content),
+            field("else_tag", $.else_tag),
+            field("alternative", repeat($._if_content)),
           ),
         ),
-        $.ps_if_end_tag,
+        field("close", $.if_end_tag),
       ),
+    if_start_tag: ($) =>
+      seq(
+        "~[",
+        "if",
+        optional(seq("#", alias($.dat_name_part, $.label))),
+        ".",
+        $.if_condition,
+        "]",
+      ),
+    else_tag: ($) => seq("[", "else", optional($._if_label), "]"),
+    if_end_tag: ($) => seq("[/", "if", optional($._if_label), "]"),
     _if_content: ($) =>
       choice(
         $.dat,
-        $.text,
+        // opening square bracket permitted by spec but to simplify
+        // this AST will not parse it. use entity code instead.
+        alias(
+          choice(/[^\[<>&\s~]([^\[<>&~]*[^\[<>&\s~])?/, prec(-1, "~")),
+          $.text,
+        ),
         $.element,
         $.script_element,
         $.style_element,
         $.entity,
       ),
-    ps_if_tag: ($) =>
-      seq("~[if", optional($._ps_condition_label), ".", $.ps_if_condition, "]"),
-    ps_if_else_tag: ($) => seq("[else", optional($._ps_condition_label), "]"),
-    ps_if_end_tag: ($) => seq("[/if", optional($._ps_condition_label), "]"),
+    _if_label: ($) => seq("#", alias($.dat_name_part, $.label)),
+
     // TODO: does not handle "in" and "not in " operators. Should add a choice for these.
-    ps_if_condition: ($) =>
+    condition_lhs: ($) => choice($.inline_dat, /[^=><\]~\s]+/, prec(-1, "~")),
+    condition_operator: (_) => choice("=", "<>", ">", "<"),
+    condition_rhs: ($) =>
+      repeat1(choice($.inline_dat, /[^\]~]+/, prec(-1, "~"))),
+    if_condition: ($) =>
       seq(
-        $.ps_condition_path,
-        optional(
-          seq(
-            $.ps_condition_operator,
-            optional(alias(/[^\]]+/, $.ps_condition_operand)),
-          ),
-        ),
+        $.condition_lhs,
+        optional(seq($.condition_operator, optional($.condition_rhs))),
       ),
-    _ps_condition_label: ($) =>
-      seq("#", alias($.dat_name_part, $.ps_condition_label)),
-    ps_condition_operator: (_) => choice("=", "<>", ">", "<"),
-    ps_condition_path: ($) =>
-      choice($.inline_dat, token(prec(-1, /[^=><\]\s]+/))),
 
     comment_dat: (_) => seq("~[Comment", choice(":", ";"), /[^\]]+/, "]"),
 

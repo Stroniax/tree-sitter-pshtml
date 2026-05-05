@@ -25,37 +25,35 @@ if/else, labelled, embedded elements & DATs
     (element
       (start_tag
         (tag_name))
-      (ps_if
-        (ps_if_tag
-          (ps_condition_label)
-          (ps_if_condition
-            (ps_condition_path)
-            (ps_condition_operator)
-            (ps_condition_operand)))
-        (ps_if_content
-          (element
-            (start_tag
-              (tag_name)
-              (attribute
-                (attribute_name)
-                (quoted_attribute_value
-                  (attribute_value
-                    (paren_dat
-                      (dat_name
-                        (dat_name_part)))))))
-            (database_field_access
-              (database_table_name)
-              (database_field_name))
-          (end_tag
-            (tag_name))))
-        (ps_if_else_tag
-          (ps_condition_label))
-        (ps_else_content
+      (if_block
+        (if_start_tag
+          (label)
+          (if_condition
+            (condition_lhs)
+            (condition_operator)
+            (condition_rhs)))
+        (element
+          (start_tag
+            (tag_name)
+            (attribute
+              (attribute_name)
+              (quoted_attribute_value
+                (attribute_value
+                  (paren_dat
+                    (dat_name
+                      (dat_name_part)))))))
           (database_field_access
             (database_table_name)
-            (database_field_name)))
-        (ps_if_end_tag
-          (ps_condition_label)))
+            (database_field_name))
+        (end_tag
+          (tag_name)))
+        (else_tag
+          (label))
+        (database_field_access
+          (database_table_name)
+          (database_field_name))
+      (if_end_tag
+        (label)))
       (text)
       (end_tag
         (tag_name)))
