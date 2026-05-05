@@ -1,0 +1,15 @@
+===
+Database field access with extension
+===
+Hello, ~([STUDENTS.EXTENSION_NAME]FIELD_NAME).
+
+---
+(document
+    (text)
+    (database_field_access
+        (database_table_name)
+        (database_extension_name)
+        (database_field_name)
+    )
+    (text)
+)

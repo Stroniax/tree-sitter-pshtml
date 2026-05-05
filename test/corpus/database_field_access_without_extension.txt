@@ -1,7 +1,7 @@
 ===
-Database Field Access ~([TABLE.EXT]FIELD)
+Database field access without database extension
 ===
-<p title="~([USERS]LASTFIRST)">Hi ~([USERS.U_PERSON_PREFERENCES]NICKNAME).</p>
+<p title="X ~([USERS]LASTFIRST) Z"></p>
 
 ---
 (document
@@ -15,11 +15,5 @@ Database Field Access ~([TABLE.EXT]FIELD)
             (database_field_access
               (database_table_name)
               (database_field_name))))))
-    (text)
-    (database_field_access
-      (database_table_name)
-      (database_extension_name)
-      (database_field_name))
-    (text)
     (end_tag
       (tag_name))))
