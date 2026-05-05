@@ -1414,8 +1414,12 @@
             "name": "inline_dat"
           },
           {
+            "type": "SYMBOL",
+            "name": "parenthetical"
+          },
+          {
             "type": "PATTERN",
-            "value": "[^);~]+"
+            "value": "[^\\(\\);~]+"
           },
           {
             "type": "PREC",
@@ -1424,6 +1428,59 @@
               "type": "STRING",
               "value": "~"
             }
+          }
+        ]
+      }
+    },
+    "parenthetical": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "inline_dat"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "parenthetical"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\(\\);~]+"
+                },
+                {
+                  "type": "PREC",
+                  "value": -1,
+                  "content": {
+                    "type": "STRING",
+                    "value": "~"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ")"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         ]
       }

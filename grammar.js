@@ -160,7 +160,19 @@ module.exports = grammar(html, {
         ),
       ),
     paren_dat_option_value: ($) =>
-      repeat1(choice($.inline_dat, /[^);~]+/, prec(-1, "~"))),
+      repeat1(
+        choice($.inline_dat, $.parenthetical, /[^\(\);~]+/, prec(-1, "~")),
+      ),
+    parenthetical: ($) =>
+      prec.right(
+        seq(
+          "(",
+          repeat(
+            choice($.inline_dat, $.parenthetical, /[^\(\);~]+/, prec(-1, "~")),
+          ),
+          optional(")"),
+        ),
+      ),
 
     // HTML overrides
     // The easiest way to parse is to just not permit tilde in a "text" syntax node, though it is technically valid when not followed by open paren or bracket.

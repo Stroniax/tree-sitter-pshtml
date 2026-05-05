@@ -202,6 +202,10 @@
         {
           "type": "inline_dat",
           "named": true
+        },
+        {
+          "type": "parenthetical",
+          "named": true
         }
       ]
     }
@@ -530,6 +534,25 @@
     }
   },
   {
+    "type": "parenthetical",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "inline_dat",
+          "named": true
+        },
+        {
+          "type": "parenthetical",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "quoted_attribute_value",
     "named": true,
     "fields": {},
@@ -724,6 +747,10 @@
   },
   {
     "type": "'",
+    "named": false
+  },
+  {
+    "type": "(",
     "named": false
   },
   {

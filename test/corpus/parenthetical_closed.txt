@@ -1,0 +1,28 @@
+===
+Parenthetical (closed)
+===
+~(gpv.foo;then=(Hello, keep parens);else=Ok (bye))
+---
+
+(document
+  (paren_dat
+    (dat_name
+        (dat_name_part)
+        (dat_name_part)
+    )
+    (dat_option
+        (dat_option_name)
+        (dat_option_operator)
+        (dat_option_value
+            (parenthetical)
+        )
+    )
+    (dat_option
+        (dat_option_name)
+        (dat_option_operator)
+        (dat_option_value
+            (parenthetical)
+        )
+    )
+  )
+)
